@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    height: 100%;
+}
+
+body {
+    @apply min-h-full pattern-cross pattern-gray-200 pattern-bg-gray-100 pattern-opacity-100 pattern-size-4;
+}
+
+@layer utilities {
+    .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
