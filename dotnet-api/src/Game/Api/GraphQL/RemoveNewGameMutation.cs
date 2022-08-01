@@ -14,7 +14,7 @@ namespace Pubquizish.Game.Api.GraphQL
     [Authorize]
     public class RemoveNewGameMutation : BaseMutation
     {
-        public RemoveNewGameMutation(HttpContext context, IMediator mediator) : base(context, mediator)
+        public RemoveNewGameMutation(IHttpContextAccessor httpContextAccessor, IMediator mediator) : base(httpContextAccessor, mediator)
         {
         }
 

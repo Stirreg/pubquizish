@@ -5,8 +5,6 @@ namespace Pubquizish.Game.Infrastructure.EntityFramework
 {
     public class GameDbContext : DbContext
     {
-        public DbSet<NewGame> NewGames { get; set; } = default!;
-
         public GameDbContext(DbContextOptions<GameDbContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

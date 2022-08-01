@@ -2,7 +2,7 @@ import { gql } from "@apollo/client/core"
 
 export const removeNewGameMutation = gql`
     mutation removeNewGame($id: String!) {
-        removeNewGame(command: {
+        removeNewGame(input: {
             id: $id
         }) {
           id

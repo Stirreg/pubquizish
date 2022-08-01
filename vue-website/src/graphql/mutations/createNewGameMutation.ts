@@ -2,7 +2,7 @@ import { gql } from "@apollo/client/core";
 
 export const createNewGameMutation = gql`
   mutation createNewGame($name: String!) {
-      createNewGame(command: {
+      createNewGame(input: {
           name: $name
       }) {
           id,

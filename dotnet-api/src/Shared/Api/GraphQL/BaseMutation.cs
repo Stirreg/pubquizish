@@ -7,12 +7,12 @@ namespace Pubquizish.Shared.Domain
 {
     public abstract class BaseMutation
     {
-        protected readonly HttpContext _context;
+        protected readonly IHttpContextAccessor _httpContextAccessor;
         protected readonly IMediator _mediator;
 
-        protected BaseMutation(HttpContext context, IMediator mediator)
+        protected BaseMutation(IHttpContextAccessor httpContextAccessor, IMediator mediator)
         {
-            _context = context;
+            _httpContextAccessor = httpContextAccessor;
             _mediator = mediator;
         }
 
@@ -20,7 +20,7 @@ namespace Pubquizish.Shared.Domain
         {
             get
             {
-                string userId = _context.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                string? userId = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
                 if (!string.IsNullOrEmpty(userId))
                 {

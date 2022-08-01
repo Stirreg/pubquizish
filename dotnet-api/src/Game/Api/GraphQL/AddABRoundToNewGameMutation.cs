@@ -14,7 +14,7 @@ namespace Pubquizish.Game.Api.GraphQL
     [Authorize]
     public class AddABRoundToNewGameMutation : BaseMutation
     {
-        public AddABRoundToNewGameMutation(HttpContext context, IMediator mediator) : base(context, mediator)
+        public AddABRoundToNewGameMutation(IHttpContextAccessor httpContextAccessor, IMediator mediator) : base(httpContextAccessor, mediator)
         {
         }
 

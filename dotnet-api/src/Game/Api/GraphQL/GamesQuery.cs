@@ -13,7 +13,7 @@ namespace Pubquizish.Game.Api.GraphQL
     {
         public IQueryable<GameReadModel> GetGames([Service] IDbConnection dbConnection)
         {
-            return dbConnection.Query<GameReadModel>("select Id, Name, Code, CreatorId, CreatedOn from NewGames").AsQueryable();
+            return dbConnection.Query<GameReadModel>("select Id, Name, Code, CreatorId, CreatedOn from NewGame").AsQueryable();
         }
     }
 }

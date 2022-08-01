@@ -5,12 +5,7 @@
       <div class="inline-block overflow-hidden">
         <img src="../assets/pubquizish-logo.svg" />
         <div class="mt-10">
-          <TextInput
-            v-model="code"
-            placeholder="Enter your code"
-            class="text-center"
-            autocomplete="off"
-          />
+          <TextInput v-model="code" placeholder="Enter your code" class="text-center" autocomplete="off" />
         </div>
         <div class="relative mt-5">
           <hr class="border-gray-300" />
@@ -21,11 +16,8 @@
     </div>
     <Dialog v-model:show="showLoginDialog">
       <div class="bg-white p-4 overflow-hidden">
-        <Btn
-          @click="$authentication.authenticateExternal('Google', 'https://localhost:3000/host')"
-          primary
-          class="float-left"
-        >
+        <Btn @click="$authentication.authenticateExternal('Google', 'https://localhost:3000/host')" primary
+          class="float-left">
           <img src="../assets/google-logo.svg" width="22" height="22" class="mr-2 float-left" />Google
         </Btn>
         <Btn @click="showLoginDialog = false" class="float-right">Cancel</Btn>

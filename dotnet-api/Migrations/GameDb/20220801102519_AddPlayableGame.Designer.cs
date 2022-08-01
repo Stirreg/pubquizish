@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pubquizish.Game.Infrastructure.EntityFramework;
 
@@ -10,9 +11,10 @@ using Pubquizish.Game.Infrastructure.EntityFramework;
 namespace api.Migrations.GameDb
 {
     [DbContext(typeof(GameDbContext))]
-    partial class GameDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220801102519_AddPlayableGame")]
+    partial class AddPlayableGame
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.0");
@@ -43,7 +45,7 @@ namespace api.Migrations.GameDb
 
                     b.HasKey("Id");
 
-                    b.ToTable("NewGame");
+                    b.ToTable("NewGames");
                 });
 
             modelBuilder.Entity("Pubquizish.Game.Domain.PlayableGame", b =>

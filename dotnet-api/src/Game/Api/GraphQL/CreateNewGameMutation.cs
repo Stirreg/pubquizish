@@ -16,7 +16,7 @@ namespace Pubquizish.Game.Api.GraphQL
     [Authorize]
     public class CreateNewGameMutation : BaseMutation
     {
-        public CreateNewGameMutation(HttpContext context, IMediator mediator) : base(context, mediator)
+        public CreateNewGameMutation(IHttpContextAccessor httpContextAccessor, IMediator mediator) : base(httpContextAccessor, mediator)
         {
         }
 
@@ -24,7 +24,7 @@ namespace Pubquizish.Game.Api.GraphQL
         {
             NewGame newGame = await mediator.Send(new CreateNewGameCommand(UserId, input.Name));
 
-            return dbConnection.QueryFirst<GameReadModel>("select Id, Name, Code, CreatorId, CreatedOn from NewGames where id = @Id", new { newGame.Id });
+            return dbConnection.QueryFirst<GameReadModel>("select Id, Name, Code, CreatorId, CreatedOn from NewGame where id = @Id", new { newGame.Id });
         }
     }
 
